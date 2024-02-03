@@ -1,0 +1,15 @@
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\bin\Debug\net6.0\eSya.ConfigPatientType.IF.deps.json
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\bin\Debug\net6.0\eSya.ConfigPatientType.IF.dll
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\bin\Debug\net6.0\eSya.ConfigPatientType.IF.pdb
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.GeneratedMSBuildEditorConfig.editorconfig
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.AssemblyInfoInputs.cache
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.AssemblyInfo.cs
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.csproj.CoreCompileInputs.cache
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.dll
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\refint\eSya.ConfigPatientType.IF.dll
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.pdb
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\ref\eSya.ConfigPatientType.IF.dll
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\bin\Debug\net6.0\eSya.ConfigPatientType.DO.dll
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\bin\Debug\net6.0\eSya.ConfigPatientType.DO.pdb
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.csproj.AssemblyReference.cache
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.csproj.CopyComplete
