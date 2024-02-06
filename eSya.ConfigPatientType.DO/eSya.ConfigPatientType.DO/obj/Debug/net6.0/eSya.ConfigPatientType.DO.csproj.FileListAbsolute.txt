@@ -9,3 +9,4 @@ D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientTyp
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.DO\eSya.ConfigPatientType.DO\obj\Debug\net6.0\refint\eSya.ConfigPatientType.DO.dll
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.DO\eSya.ConfigPatientType.DO\obj\Debug\net6.0\eSya.ConfigPatientType.DO.pdb
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.DO\eSya.ConfigPatientType.DO\obj\Debug\net6.0\ref\eSya.ConfigPatientType.DO.dll
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.DO\eSya.ConfigPatientType.DO\obj\Debug\net6.0\eSya.ConfigPatientType.DO.sourcelink.json

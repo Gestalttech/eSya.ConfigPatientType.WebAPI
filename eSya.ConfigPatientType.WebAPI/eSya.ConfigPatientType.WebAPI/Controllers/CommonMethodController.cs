@@ -19,7 +19,7 @@ namespace eSya.ConfigPatientType.WebAPI.Controllers
             var appcodes = await _commonDataRepository.GetApplicationCodesbyCodeType(codetype);
             return Ok(appcodes);
         }
-        [HttpGet]
+        [HttpPost]
         public async Task<IActionResult> GetApplicationCodesByCodeTypeList(List<int> l_codeType)
         {
             var ac = await _commonDataRepository.GetApplicationCodesByCodeTypeList(l_codeType);

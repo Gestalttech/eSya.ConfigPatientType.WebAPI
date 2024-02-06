@@ -13,3 +13,4 @@ D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientTyp
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\bin\Debug\net6.0\eSya.ConfigPatientType.DO.pdb
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.csproj.AssemblyReference.cache
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.csproj.CopyComplete
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.IF\eSya.ConfigPatientType.IF\obj\Debug\net6.0\eSya.ConfigPatientType.IF.sourcelink.json
