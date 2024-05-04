@@ -8,6 +8,7 @@ namespace eSya.ConfigPatientType.DL.Entities
     public partial class eSyaEnterprise : DbContext
     {
         public static string _connString = "";
+
         public eSyaEnterprise()
         {
         }
@@ -20,7 +21,12 @@ namespace eSya.ConfigPatientType.DL.Entities
         public virtual DbSet<GtEcapcd> GtEcapcds { get; set; } = null!;
         public virtual DbSet<GtEcbsln> GtEcbslns { get; set; } = null!;
         public virtual DbSet<GtEcpapc> GtEcpapcs { get; set; } = null!;
+        public virtual DbSet<GtEcptcb> GtEcptcbs { get; set; } = null!;
+        public virtual DbSet<GtEcptcd> GtEcptcds { get; set; } = null!;
         public virtual DbSet<GtEcptch> GtEcptches { get; set; } = null!;
+        public virtual DbSet<GtEcptdp> GtEcptdps { get; set; } = null!;
+        public virtual DbSet<GtEcptsp> GtEcptsps { get; set; } = null!;
+        public virtual DbSet<GtEcptsr> GtEcptsrs { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -88,6 +94,8 @@ namespace eSya.ConfigPatientType.DL.Entities
 
                 entity.Property(e => e.LocationDescription).HasMaxLength(150);
 
+                entity.Property(e => e.Lstatus).HasColumnName("LStatus");
+
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
 
                 entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
@@ -136,6 +144,57 @@ namespace eSya.ConfigPatientType.DL.Entities
                 entity.Property(e => e.ParmValue).HasColumnType("numeric(18, 6)");
             });
 
+            modelBuilder.Entity<GtEcptcb>(entity =>
+            {
+                entity.HasKey(e => new { e.BusinessKey, e.PatientTypeId, e.PatientCategoryId });
+
+                entity.ToTable("GT_ECPTCB");
+
+                entity.Property(e => e.PatientTypeId).HasColumnName("PatientTypeID");
+
+                entity.Property(e => e.PatientCategoryId).HasColumnName("PatientCategoryID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtEcptcd>(entity =>
+            {
+                entity.HasKey(e => new { e.BusinessKey, e.PatientTypeId, e.PatientCategoryId, e.PatientCatgDocId });
+
+                entity.ToTable("GT_ECPTCD");
+
+                entity.Property(e => e.PatientTypeId).HasColumnName("PatientTypeID");
+
+                entity.Property(e => e.PatientCategoryId).HasColumnName("PatientCategoryID");
+
+                entity.Property(e => e.PatientCatgDocId).HasColumnName("PatientCatgDocID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.PatientCatgDocDesc).HasMaxLength(100);
+            });
+
             modelBuilder.Entity<GtEcptch>(entity =>
             {
                 entity.HasKey(e => new { e.PatientTypeId, e.PatientCategoryId });
@@ -153,6 +212,78 @@ namespace eSya.ConfigPatientType.DL.Entities
                 entity.Property(e => e.FormId)
                     .HasMaxLength(10)
                     .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtEcptdp>(entity =>
+            {
+                entity.HasKey(e => new { e.BusinessKey, e.PatientTypeId, e.PatientCategoryId, e.Relationship });
+
+                entity.ToTable("GT_ECPTDP");
+
+                entity.Property(e => e.PatientTypeId).HasColumnName("PatientTypeID");
+
+                entity.Property(e => e.PatientCategoryId).HasColumnName("PatientCategoryID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtEcptsp>(entity =>
+            {
+                entity.HasKey(e => new { e.BusinessKey, e.PatientTypeId, e.PatientCategoryId, e.SpecialtyId });
+
+                entity.ToTable("GT_ECPTSP");
+
+                entity.Property(e => e.PatientTypeId).HasColumnName("PatientTypeID");
+
+                entity.Property(e => e.PatientCategoryId).HasColumnName("PatientCategoryID");
+
+                entity.Property(e => e.SpecialtyId).HasColumnName("SpecialtyID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtEcptsr>(entity =>
+            {
+                entity.HasKey(e => new { e.BusinessKey, e.PatientTypeId, e.PatientCategoryId, e.ServiceType });
+
+                entity.ToTable("GT_ECPTSR");
+
+                entity.Property(e => e.PatientTypeId).HasColumnName("PatientTypeID");
+
+                entity.Property(e => e.PatientCategoryId).HasColumnName("PatientCategoryID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
                     .HasColumnName("FormID");
 
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
