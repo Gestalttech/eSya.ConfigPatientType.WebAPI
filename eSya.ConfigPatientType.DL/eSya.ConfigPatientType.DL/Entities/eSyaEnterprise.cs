@@ -191,8 +191,6 @@ namespace eSya.ConfigPatientType.DL.Entities
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
 
                 entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
-
-                entity.Property(e => e.PatientCatgDocDesc).HasMaxLength(100);
             });
 
             modelBuilder.Entity<GtEcptch>(entity =>

@@ -52,6 +52,8 @@ builder.Services.AddLocalization();
 
 builder.Services.AddScoped<ICommonDataRepository, CommonDataRepository>();
 builder.Services.AddScoped<IPatientTypesRepository, PatientTypesRepository>();
+builder.Services.AddScoped<IBusinessRepository, BusinessRepository>();
+builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 
 

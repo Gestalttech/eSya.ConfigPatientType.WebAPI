@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("eSya.ConfigPatientType.DO")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b2fcb0df6c541602c7328d301b893bc313f1184f")]
 [assembly: System.Reflection.AssemblyProductAttribute("eSya.ConfigPatientType.DO")]
 [assembly: System.Reflection.AssemblyTitleAttribute("eSya.ConfigPatientType.DO")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

@@ -31,5 +31,11 @@ namespace eSya.ConfigPatientType.WebAPI.Controllers
             var appcodes = await _commonDataRepository.GetBusinessKey();
             return Ok(appcodes);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetActivePatientTypes()
+        {
+            var pts = await _commonDataRepository.GetActivePatientTypes();
+            return Ok(pts);
+        }
     }
 }

@@ -81,5 +81,34 @@ namespace eSya.ConfigPatientType.DL.Repository
                 throw ex;
             }
         }
+        public async Task<List<DO_PatientTypCategoryAttribute>> GetActivePatientTypes()
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var pt = db.GtEcptches
+                        .Where(w => w.ActiveStatus)
+                        .Join(db.GtEcapcds.Where(w => w.CodeType == CodeTypeValue.PatientType),
+                          pl => new { pl.PatientTypeId },
+                          pt => new { PatientTypeId = pt.ApplicationCode },
+                         (pl, pt) => new { pl, pt })
+                        .Select(r => new DO_PatientTypCategoryAttribute
+                        {
+                            PatientTypeId = r.pl.PatientTypeId,
+                            Description = r.pt.CodeDesc
+                        }).OrderBy(o => o.Description).ToList();
+                        var Distinct = pt.GroupBy(x => new { x.PatientTypeId })
+                           .Select(y => y.First()).ToList();
+
+                    return Distinct;
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

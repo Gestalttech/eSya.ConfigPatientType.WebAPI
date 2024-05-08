@@ -9,7 +9,6 @@ namespace eSya.ConfigPatientType.DL.Entities
         public int PatientTypeId { get; set; }
         public int PatientCategoryId { get; set; }
         public int PatientCatgDocId { get; set; }
-        public string PatientCatgDocDesc { get; set; } = null!;
         public bool ActiveStatus { get; set; }
         public string FormId { get; set; } = null!;
         public int CreatedBy { get; set; }
