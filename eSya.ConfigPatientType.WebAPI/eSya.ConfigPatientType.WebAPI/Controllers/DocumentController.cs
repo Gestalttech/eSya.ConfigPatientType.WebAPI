@@ -15,14 +15,19 @@ namespace eSya.ConfigPatientType.WebAPI.Controllers
         {
             _documentRepository = documentRepository;
         }
-        #region Patient Type & Category Business Link
-        [HttpGet]
-        public async Task<IActionResult> GetAllPatientCategoryDocumentLink(int businesskey, int patienttypeId)
+        #region Patient Type & Category Document Link
+        //[HttpGet]
+        //public async Task<IActionResult> GetAllPatientCategoryDocumentLink(int businesskey, int patienttypeId)
+        //{
+        //    var ds = await _documentRepository.GetAllPatientCategoryDocumentLink(businesskey, patienttypeId);
+        //    return Ok(ds);
+        //}
+        [HttpPost]
+        public async Task<IActionResult> GetPatientTypeCategoryDocumentInfo(DO_PatientTypeCategoryDocumentLink obj)
         {
-            var ds = await _documentRepository.GetAllPatientCategoryDocumentLink(businesskey, patienttypeId);
+            var ds = await _documentRepository.GetPatientTypeCategoryDocumentInfo(obj.BusinessKey, obj.PatientTypeId,obj.PatientCategoryId,obj.PatientCatgDocId);
             return Ok(ds);
         }
-
         [HttpPost]
         public async Task<IActionResult> InsertOrUpdatePatientCategoryDocumentLink(List<DO_PatientTypeCategoryDocumentLink> obj)
         {

@@ -27,6 +27,8 @@ namespace eSya.ConfigPatientType.DL.Entities
         public virtual DbSet<GtEcptdp> GtEcptdps { get; set; } = null!;
         public virtual DbSet<GtEcptsp> GtEcptsps { get; set; } = null!;
         public virtual DbSet<GtEcptsr> GtEcptsrs { get; set; } = null!;
+        public virtual DbSet<GtEsspbl> GtEsspbls { get; set; } = null!;
+        public virtual DbSet<GtEsspcd> GtEsspcds { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -287,6 +289,74 @@ namespace eSya.ConfigPatientType.DL.Entities
                 entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
 
                 entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtEsspbl>(entity =>
+            {
+                entity.HasKey(e => new { e.BusinessKey, e.SpecialtyId })
+                    .HasName("PK_GT_ESSPBL_1");
+
+                entity.ToTable("GT_ESSPBL");
+
+                entity.Property(e => e.SpecialtyId).HasColumnName("SpecialtyID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+            });
+
+            modelBuilder.Entity<GtEsspcd>(entity =>
+            {
+                entity.HasKey(e => e.SpecialtyId);
+
+                entity.ToTable("GT_ESSPCD");
+
+                entity.Property(e => e.SpecialtyId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("SpecialtyID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FocusArea).HasMaxLength(2000);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.Gender)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.MedicalIcon).HasMaxLength(150);
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.SpecialtyDesc).HasMaxLength(50);
+
+                entity.Property(e => e.SpecialtyGroup)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
+                entity.Property(e => e.SpecialtyType)
+                    .HasMaxLength(1)
+                    .IsUnicode(false)
+                    .IsFixedLength();
             });
 
             OnModelCreatingPartial(modelBuilder);
