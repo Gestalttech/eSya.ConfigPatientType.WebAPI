@@ -29,6 +29,7 @@ namespace eSya.ConfigPatientType.DL.Entities
         public virtual DbSet<GtEcptsr> GtEcptsrs { get; set; } = null!;
         public virtual DbSet<GtEsspbl> GtEsspbls { get; set; } = null!;
         public virtual DbSet<GtEsspcd> GtEsspcds { get; set; } = null!;
+        public virtual DbSet<GtEssrty> GtEssrties { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -270,7 +271,7 @@ namespace eSya.ConfigPatientType.DL.Entities
 
             modelBuilder.Entity<GtEcptsr>(entity =>
             {
-                entity.HasKey(e => new { e.BusinessKey, e.PatientTypeId, e.PatientCategoryId, e.ServiceType });
+                entity.HasKey(e => new { e.BusinessKey, e.PatientTypeId, e.PatientCategoryId, e.ServiceType, e.RateType });
 
                 entity.ToTable("GT_ECPTSR");
 
@@ -357,6 +358,32 @@ namespace eSya.ConfigPatientType.DL.Entities
                     .HasMaxLength(1)
                     .IsUnicode(false)
                     .IsFixedLength();
+            });
+
+            modelBuilder.Entity<GtEssrty>(entity =>
+            {
+                entity.HasKey(e => e.ServiceTypeId);
+
+                entity.ToTable("GT_ESSRTY");
+
+                entity.Property(e => e.ServiceTypeId)
+                    .ValueGeneratedNever()
+                    .HasColumnName("ServiceTypeID");
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.FormId)
+                    .HasMaxLength(10)
+                    .IsUnicode(false)
+                    .HasColumnName("FormID");
+
+                entity.Property(e => e.ModifiedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.ModifiedTerminal).HasMaxLength(50);
+
+                entity.Property(e => e.ServiceTypeDesc).HasMaxLength(50);
             });
 
             OnModelCreatingPartial(modelBuilder);
