@@ -15,7 +15,7 @@ namespace eSya.ConfigPatientType.IF
         Task<DO_ReturnParameter> InsertPatientCategoryDiscount(DO_PatientCategoryDiscount obj);
         Task<DO_ReturnParameter> UpdatePatientCategoryDiscount(DO_PatientCategoryDiscount obj);
         Task<DO_PatientCategoryDiscount> GetPatientPatientCategoryDiscountInfo(DO_PatientCategoryDiscount obj);
-        Task<DO_ReturnParameter> ActiveOrDeActivePatientCategoryDiscount(bool status, DO_PatientCategoryDiscount obj);
+        Task<DO_ReturnParameter> ActiveOrDeActivePatientCategoryDiscount( DO_PatientCategoryDiscount obj);
         #endregion
     }
 }

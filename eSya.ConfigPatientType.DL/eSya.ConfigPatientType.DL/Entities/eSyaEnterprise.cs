@@ -226,11 +226,6 @@ namespace eSya.ConfigPatientType.DL.Entities
 
                 entity.Property(e => e.DiscountPerc).HasColumnType("numeric(5, 2)");
 
-                entity.Property(e => e.DiscountRule)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
-
                 entity.Property(e => e.FormId)
                     .HasMaxLength(10)
                     .IsUnicode(false)
@@ -258,11 +253,6 @@ namespace eSya.ConfigPatientType.DL.Entities
                 entity.Property(e => e.CreatedTerminal).HasMaxLength(50);
 
                 entity.Property(e => e.DiscountPerc).HasColumnType("numeric(5, 2)");
-
-                entity.Property(e => e.DiscountRule)
-                    .HasMaxLength(1)
-                    .IsUnicode(false)
-                    .IsFixedLength();
 
                 entity.Property(e => e.FormId)
                     .HasMaxLength(10)

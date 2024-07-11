@@ -10,7 +10,7 @@ namespace eSya.ConfigPatientType.DL.Entities
         public int DiscountFor { get; set; }
         public int ServiceClassId { get; set; }
         public decimal ServiceChargePerc { get; set; }
-        public string DiscountRule { get; set; } = null!;
+        public int DiscountRule { get; set; }
         public decimal DiscountPerc { get; set; }
         public bool ActiveStatus { get; set; }
         public string FormId { get; set; } = null!;

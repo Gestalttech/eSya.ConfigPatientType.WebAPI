@@ -69,11 +69,13 @@ namespace eSya.ConfigPatientType.DL.Repository
                                   (lco, d) => new { lco, d })
                         .SelectMany(z => z.d.DefaultIfEmpty(),
                          (a, b) => new DO_PatientCategoryDiscount
-                         {
-                             ServiceClassId=a.lco.o.ServiceClassId,
+                         {   BusinessKey= businesskey,
+                             PatientCategoryId= patientcategoryId,
+                             DiscountFor= discountfor,
+                             ServiceClassId =a.lco.o.ServiceClassId,
                              ServiceClassDesc=a.lco.o.ServiceClassDesc,
                              ServiceChargePerc=b==null?0:b.ServiceChargePerc,
-                             DiscountRule=b==null?"":b.DiscountRule,
+                             DiscountRule=b==null?0:b.DiscountRule,
                              DiscountPerc = b == null ? 0 : b.DiscountPerc,
                              ActiveStatus = b == null ? false : b.ActiveStatus
                          }).ToList();
@@ -94,10 +96,13 @@ namespace eSya.ConfigPatientType.DL.Repository
                           .SelectMany(z => z.d.DefaultIfEmpty(),
                            (a, b) => new DO_PatientCategoryDiscount
                            {
+                               BusinessKey = businesskey,
+                               PatientCategoryId = patientcategoryId,
+                               DiscountFor = discountfor,
                                ServiceId = a.lco.c.ServiceId,
-                               ServiceClassDesc = a.lco.c.ServiceDesc,
+                               ServiceDesc = a.lco.c.ServiceDesc,
                                ServiceChargePerc = b == null ? 0 : b.ServiceChargePerc,
-                               DiscountRule = b == null ? "" : b.DiscountRule,
+                               DiscountRule = b == null ? 0 : b.DiscountRule,
                                DiscountPerc = b == null ? 0 : b.DiscountPerc,
                                ActiveStatus = b == null ? false : b.ActiveStatus
                            }).ToList();
@@ -193,7 +198,7 @@ namespace eSya.ConfigPatientType.DL.Repository
                             }
                             else
                             {
-                                return new DO_ReturnParameter() { Status = false, StatusCode = "W0204", Message = string.Format(_localizer[name: "W0204"]) };
+                                return new DO_ReturnParameter() { Status = false, StatusCode = "W0207", Message = string.Format(_localizer[name: "W0207"]) };
                             }
                         }
 
@@ -249,7 +254,7 @@ namespace eSya.ConfigPatientType.DL.Repository
                             }
                             else
                             {
-                                return new DO_ReturnParameter() { Status = false, StatusCode = "W0204", Message = string.Format(_localizer[name: "W0204"]) };
+                                return new DO_ReturnParameter() { Status = false, StatusCode = "W0207", Message = string.Format(_localizer[name: "W0207"]) };
                             }
                         }
                     }
@@ -484,7 +489,7 @@ namespace eSya.ConfigPatientType.DL.Repository
                 throw ex;
             }
         }
-        public async Task<DO_ReturnParameter> ActiveOrDeActivePatientCategoryDiscount(bool status, DO_PatientCategoryDiscount obj)
+        public async Task<DO_ReturnParameter> ActiveOrDeActivePatientCategoryDiscount( DO_PatientCategoryDiscount obj)
         {
             using (var db = new eSyaEnterprise())
             {
@@ -502,11 +507,11 @@ namespace eSya.ConfigPatientType.DL.Repository
                                 return new DO_ReturnParameter() { Status = false, StatusCode = "W0206", Message = string.Format(_localizer[name: "W0206"]) };
                             }
 
-                            pa_sercls.ActiveStatus = status;
+                            pa_sercls.ActiveStatus = obj.status;
                             await db.SaveChangesAsync();
                             dbContext.Commit();
 
-                            if (status == true)
+                            if (obj.status == true)
                                 return new DO_ReturnParameter() { Status = true, StatusCode = "S0003", Message = string.Format(_localizer[name: "S0003"]) };
                             else
                                 return new DO_ReturnParameter() { Status = true, StatusCode = "S0004", Message = string.Format(_localizer[name: "S0004"]) };
@@ -521,11 +526,11 @@ namespace eSya.ConfigPatientType.DL.Repository
                                 return new DO_ReturnParameter() { Status = false, StatusCode = "W0206", Message = string.Format(_localizer[name: "W0206"]) };
                             }
 
-                            pa_ser.ActiveStatus = status;
+                            pa_ser.ActiveStatus = obj.status;
                             await db.SaveChangesAsync();
                             dbContext.Commit();
 
-                            if (status == true)
+                            if (obj.status == true)
                                 return new DO_ReturnParameter() { Status = true, StatusCode = "S0003", Message = string.Format(_localizer[name: "S0003"]) };
                             else
                                 return new DO_ReturnParameter() { Status = true, StatusCode = "S0004", Message = string.Format(_localizer[name: "S0004"]) };

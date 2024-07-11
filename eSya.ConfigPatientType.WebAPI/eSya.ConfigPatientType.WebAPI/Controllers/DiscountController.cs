@@ -50,9 +50,9 @@ namespace eSya.ConfigPatientType.WebAPI.Controllers
             return Ok(ds);
         }
         [HttpPost]
-        public async Task<IActionResult> ActiveOrDeActivePatientCategoryDiscount(bool status, DO_PatientCategoryDiscount obj)
+        public async Task<IActionResult> ActiveOrDeActivePatientCategoryDiscount(DO_PatientCategoryDiscount obj)
         {
-            var ds = await _patientCategoryDiscountRepository.ActiveOrDeActivePatientCategoryDiscount(status,obj);
+            var ds = await _patientCategoryDiscountRepository.ActiveOrDeActivePatientCategoryDiscount(obj);
             return Ok(ds);
         }
         #endregion
