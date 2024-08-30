@@ -34,15 +34,15 @@ namespace eSya.ConfigPatientType.DL.Repository
                                        Description =  s.CodeDesc,
                                        ActiveStatus = s.ActiveStatus
                                    }).ToListAsync();
-                    obj.l_PatienTypeCategory = await db.GtEcptches.Join(db.GtEcapcds,
+                    obj.l_PatienTypeCategory = await db.GtEcptches.Join(db.GtEcsulgs,
                         x => x.PatientCategoryId,
-                        y => y.ApplicationCode,
+                        y => y.SubledgerGroup,
                        (x, y) => new DO_PatientTypCategoryAttribute
                        {
                            PatientTypeId = x.PatientTypeId,
                            PatientCategoryId = x.PatientCategoryId,
                            //Description = x.PatientCategoryId.ToString() + " - " + y.CodeDesc,
-                           Description = y.CodeDesc,
+                           Description = y.SubledgerDesc,
                            ActiveStatus = x.ActiveStatus
                        }).ToListAsync();
                     return obj;

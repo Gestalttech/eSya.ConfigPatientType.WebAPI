@@ -110,5 +110,28 @@ namespace eSya.ConfigPatientType.DL.Repository
                 throw ex;
             }
         }
+
+        public async Task<List<DO_ApplicationCodes>> GetPatientCategory()
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var ds = db.GtEcsulgs
+                        .Where(w => w.ActiveStatus && w.SubledgerType=="P" || w.SubledgerType=="C" && w.ActiveStatus)
+                        .Select(r => new DO_ApplicationCodes
+                        {
+                            ApplicationCode = r.SubledgerGroup,
+                            CodeDesc = r.SubledgerDesc
+                        }).OrderBy(o => o.CodeDesc).ToListAsync();
+
+                    return await ds;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

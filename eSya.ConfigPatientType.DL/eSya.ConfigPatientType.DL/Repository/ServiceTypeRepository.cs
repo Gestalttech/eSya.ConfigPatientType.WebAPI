@@ -28,13 +28,13 @@ namespace eSya.ConfigPatientType.DL.Repository
                     DO_PatientAttributes obj = new DO_PatientAttributes();
 
                     obj.l_PatienTypeCategory = await db.GtEcptches.Where(x => x.ActiveStatus && x.PatientTypeId == PatientTypeId)
-                        .Join(db.GtEcapcds.Where(w => w.CodeType == CodeTypeValue.PatientCategory),
+                        .Join(db.GtEcsulgs.Where(w => w.SubledgerType == "C"||w.SubledgerType=="P"&& w.ActiveStatus),
                         x => x.PatientCategoryId,
-                        y => y.ApplicationCode,
+                        y => y.SubledgerGroup,
                        (x, y) => new DO_PatientTypCategoryAttribute
                        {
                            PatientCategoryId = x.PatientCategoryId,
-                           Description = y.CodeDesc,
+                           Description = y.SubledgerDesc,
                            ActiveStatus = x.ActiveStatus
                        }).ToListAsync();
                     return obj;

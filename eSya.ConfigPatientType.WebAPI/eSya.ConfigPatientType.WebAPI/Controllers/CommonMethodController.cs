@@ -37,5 +37,11 @@ namespace eSya.ConfigPatientType.WebAPI.Controllers
             var pts = await _commonDataRepository.GetActivePatientTypes();
             return Ok(pts);
         }
+        [HttpGet]
+        public async Task<IActionResult> GetPatientCategory()
+        {
+            var pts = await _commonDataRepository.GetPatientCategory();
+            return Ok(pts);
+        }
     }
 }
