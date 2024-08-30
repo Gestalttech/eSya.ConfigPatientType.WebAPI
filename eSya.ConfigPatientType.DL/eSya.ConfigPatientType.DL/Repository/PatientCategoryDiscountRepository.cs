@@ -27,14 +27,14 @@ namespace eSya.ConfigPatientType.DL.Repository
                 using (var db = new eSyaEnterprise())
                 {
                     var ds = db.GtEcptcbs
-                        .Join(db.GtEcapcds,
+                        .Join(db.GtEcsulgs.Where(w=>w.SubledgerType=="C"||w.SubledgerType=="P"&& w.ActiveStatus),
                         b => new {b.PatientCategoryId},
-                        c => new { PatientCategoryId=c.ApplicationCode},
+                        c => new { PatientCategoryId=c.SubledgerGroup},
                         (b, c) => new {b,c}).Where(x =>x.b.BusinessKey== businesskey && x.b.ActiveStatus && x.c.ActiveStatus)
                         .Select(r => new DO_PatientCategoryDiscount
                         {
                             PatientCategoryId = r.b.PatientCategoryId,
-                            PatientCategoryDesc = r.c.CodeDesc,
+                            PatientCategoryDesc = r.c.SubledgerDesc,
                         }).OrderBy(o => o.PatientCategoryDesc).ToListAsync();
 
                     return await ds;
