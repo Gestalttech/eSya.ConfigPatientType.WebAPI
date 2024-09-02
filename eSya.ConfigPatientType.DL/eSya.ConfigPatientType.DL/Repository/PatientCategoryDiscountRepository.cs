@@ -32,10 +32,14 @@ namespace eSya.ConfigPatientType.DL.Repository
                         b => new {b.PatientCategoryId},
                         c => new { PatientCategoryId=c.SubledgerGroup},
                         (b, c) => new {b,c}).Where(x =>x.b.BusinessKey== businesskey && x.b.ActiveStatus && x.c.ActiveStatus)
+                        .Join(db.GtEcpapcs.Where(w => w.ParameterId == 1 && w.ParmAction && w.ActiveStatus),
+                         pll => new { pll.b.PatientTypeId, pll.b.PatientCategoryId },
+                         pc => new { pc.PatientTypeId, pc.PatientCategoryId },
+                         (pll, pc) => new { pll, pc })
                         .Select(r => new DO_PatientCategoryDiscount
                         {
-                            PatientCategoryId = r.b.PatientCategoryId,
-                            PatientCategoryDesc = r.c.SubledgerDesc,
+                            PatientCategoryId = r.pll.b.PatientCategoryId,
+                            PatientCategoryDesc = r.pll.c.SubledgerDesc,
                         }).OrderBy(o => o.PatientCategoryDesc).ToListAsync();
 
                     return await ds;
