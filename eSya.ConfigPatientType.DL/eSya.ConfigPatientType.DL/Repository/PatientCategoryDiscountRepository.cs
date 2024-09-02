@@ -27,7 +27,8 @@ namespace eSya.ConfigPatientType.DL.Repository
                 using (var db = new eSyaEnterprise())
                 {
                     var ds = db.GtEcptcbs
-                        .Join(db.GtEcsulgs.Where(w=>w.SubledgerType=="C"||w.SubledgerType=="P"&& w.ActiveStatus),
+                        //.Join(db.GtEcsulgs.Where(w=>w.SubledgerType=="C"||w.SubledgerType=="P"&& w.ActiveStatus),
+                        .Join(db.GtEcsulgs.Where(w => w.SubledgerType == "P" && w.ActiveStatus),
                         b => new {b.PatientCategoryId},
                         c => new { PatientCategoryId=c.SubledgerGroup},
                         (b, c) => new {b,c}).Where(x =>x.b.BusinessKey== businesskey && x.b.ActiveStatus && x.c.ActiveStatus)
