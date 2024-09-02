@@ -19,6 +19,51 @@ namespace eSya.ConfigPatientType.DL.Repository
             _localizer = localizer;
         }
         #region Patient Type & Category Link with Param
+        public async Task<List<DO_ApplicationCodes>> GetSubledgerTypes()
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var ds = db.GtEcsulgs
+                        .Where(w => w.ActiveStatus)
+                        .Select(r => new DO_ApplicationCodes
+                        {
+                            ApplicationCode = r.SubledgerGroup,
+                            CodeDesc = r.SubledgerType
+                        }).OrderBy(o => o.CodeDesc).ToList();
+
+                    var dist = ds.GroupBy(x => new { x.CodeDesc }).Select(g => g.First()).ToList();
+                    return dist.ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public async Task<List<DO_ApplicationCodes>> GetPatientCategorybySubledgerType(string subledgertype)
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var ds = db.GtEcsulgs
+                        .Where(w => w.ActiveStatus && w.SubledgerType == subledgertype && w.ActiveStatus)
+                        .Select(r => new DO_ApplicationCodes
+                        {
+                            ApplicationCode = r.SubledgerGroup,
+                            CodeDesc = r.SubledgerDesc
+                        }).OrderBy(o => o.CodeDesc).ToListAsync();
+
+                    return await ds;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         public async Task<DO_PatientAttributes> GetAllPatientTypesforTreeView(int CodeType)
         {
             try
@@ -67,6 +112,7 @@ namespace eSya.ConfigPatientType.DL.Repository
                         PatientTypeId = pc.PatientTypeId,
                         PatientCategoryId = pc.PatientCategoryId,
                         ActiveStatus = pc.ActiveStatus,
+                        Description=db.GtEcsulgs.Where(x=>x.SubledgerGroup== PatientCategoryId).FirstOrDefault().SubledgerType,
                         l_ptypeparams = db.GtEcpapcs.Where(h => h.PatientTypeId == PatientTypeId
                         && h.PatientCategoryId == PatientCategoryId).Select(p => new DO_eSyaParameter
                         {

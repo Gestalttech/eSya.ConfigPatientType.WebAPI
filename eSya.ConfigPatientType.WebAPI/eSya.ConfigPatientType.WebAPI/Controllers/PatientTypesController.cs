@@ -16,6 +16,20 @@ namespace eSya.ConfigPatientType.WebAPI.Controllers
             _PatientTypesRepository = PatientTypesRepository;
         }
         #region Patient Type & Category Link with Param
+        
+        [HttpGet]
+        public async Task<IActionResult> GetSubledgerTypes()
+        {
+            var rs = await _PatientTypesRepository.GetSubledgerTypes();
+            return Ok(rs);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetPatientCategorybySubledgerType(string subledgertype)
+        {
+            var rs = await _PatientTypesRepository.GetPatientCategorybySubledgerType(subledgertype);
+            return Ok(rs);
+        }
+
 
         [HttpGet]
         public async Task<IActionResult> GetAllPatientTypesforTreeView(int CodeType)

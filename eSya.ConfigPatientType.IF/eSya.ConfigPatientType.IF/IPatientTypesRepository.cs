@@ -10,6 +10,8 @@ namespace eSya.ConfigPatientType.IF
     #region Patient Type & Category Link with Param
     public interface IPatientTypesRepository
     {
+        Task<List<DO_ApplicationCodes>> GetSubledgerTypes();
+        Task<List<DO_ApplicationCodes>> GetPatientCategorybySubledgerType(string subledgertype);
         Task<DO_PatientAttributes> GetAllPatientTypesforTreeView(int CodeType);
         Task<DO_PatientTypCategoryAttribute> GetPatientCategoryInfo(int PatientTypeId, int PatientCategoryId);
         Task<DO_ReturnParameter> InsertPatientCategory(DO_PatientTypCategoryAttribute obj);
