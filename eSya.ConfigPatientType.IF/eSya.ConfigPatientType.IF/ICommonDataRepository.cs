@@ -14,5 +14,6 @@ namespace eSya.ConfigPatientType.IF
         Task<List<DO_BusinessLocation>> GetBusinessKey();
         Task<List<DO_PatientTypCategoryAttribute>> GetActivePatientTypes();
         Task<List<DO_ApplicationCodes>> GetPatientCategory();
+        Task<List<DO_CurrencyCodes>> GetActiveCurrencies();
     }
 }

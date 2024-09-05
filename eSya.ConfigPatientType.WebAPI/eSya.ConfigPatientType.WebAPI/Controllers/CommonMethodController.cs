@@ -1,4 +1,5 @@
-﻿using eSya.ConfigPatientType.IF;
+﻿using eSya.ConfigPatientType.DO;
+using eSya.ConfigPatientType.IF;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -41,6 +42,12 @@ namespace eSya.ConfigPatientType.WebAPI.Controllers
         public async Task<IActionResult> GetPatientCategory()
         {
             var pts = await _commonDataRepository.GetPatientCategory();
+            return Ok(pts);
+        }
+        [HttpGet]
+        public async Task<IActionResult> GetActiveCurrencies()
+        {
+            var pts = await _commonDataRepository.GetActiveCurrencies();
             return Ok(pts);
         }
     }

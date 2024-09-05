@@ -1,8 +1,12 @@
 {
+
+
   "W0204": "Patient Type and Category already Exist",
   "W0205": "Patient Type and Category Not Exist",
   "W0206": "Not Exist",
   "W0207": "already Exist",
+  "W0208": "New Effective From Date can't be less than the current Effective From Date",
+
   "S0001": "Saved Sucessfully",
   "S0002": "Updated Sucessfully",
   "S0003": "Activated Successfully",

@@ -56,7 +56,10 @@ builder.Services.AddScoped<IBusinessRepository, BusinessRepository>();
 builder.Services.AddScoped<IDocumentRepository, DocumentRepository>();
 builder.Services.AddScoped<ISpecialtyRepository, SpecialtyRepository>();
 builder.Services.AddScoped<IServiceTypeRepository, ServiceTypeRepository>();
-builder.Services.AddScoped<IPatientCategoryDiscountRepository, PatientCategoryDiscountRepository>(); 
+builder.Services.AddScoped<IPatientCategoryDiscountRepository, PatientCategoryDiscountRepository>();
+builder.Services.AddScoped<IHealthCareCardRepository, HealthCareCardRepository>();
+builder.Services.AddScoped<IDependentRepository, DependentRepository>();
+
 builder.Services.AddSingleton<IStringLocalizerFactory, JsonStringLocalizerFactory>();
 
 

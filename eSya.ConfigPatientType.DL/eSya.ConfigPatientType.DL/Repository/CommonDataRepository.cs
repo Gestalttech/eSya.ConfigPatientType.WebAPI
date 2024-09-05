@@ -133,5 +133,27 @@ namespace eSya.ConfigPatientType.DL.Repository
                 throw ex;
             }
         }
+        public async Task<List<DO_CurrencyCodes>> GetActiveCurrencies()
+        {
+            try
+            {
+                using (var db = new eSyaEnterprise())
+                {
+                    var ds = db.GtEccucos
+                        .Where(w => w.ActiveStatus)
+                        .Select(r => new DO_CurrencyCodes
+                        {
+                            CurrencyCode = r.CurrencyCode,
+                            CurrencyName = r.CurrencyName
+                        }).OrderBy(o => o.CurrencyName).ToListAsync();
+
+                    return await ds;
+                }
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
     }
 }

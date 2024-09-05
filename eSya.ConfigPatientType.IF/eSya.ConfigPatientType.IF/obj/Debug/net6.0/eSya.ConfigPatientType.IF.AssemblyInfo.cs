@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("eSya.ConfigPatientType.IF")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d60625d8e1b00b3355e0c7f3ac6eecf85749d22c")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+a09eacd32e2e2abc71dc1cdabc751b30598732b8")]
 [assembly: System.Reflection.AssemblyProductAttribute("eSya.ConfigPatientType.IF")]
 [assembly: System.Reflection.AssemblyTitleAttribute("eSya.ConfigPatientType.IF")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
