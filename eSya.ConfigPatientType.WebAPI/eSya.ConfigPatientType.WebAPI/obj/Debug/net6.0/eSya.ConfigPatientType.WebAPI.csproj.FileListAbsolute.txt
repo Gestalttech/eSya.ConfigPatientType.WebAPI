@@ -277,3 +277,4 @@ D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientTyp
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.WebAPI\obj\Debug\net6.0\eSya.ConfigPatientType.WebAPI.pdb
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.WebAPI\obj\Debug\net6.0\eSya.ConfigPatientType.WebAPI.genruntimeconfig.cache
 D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.WebAPI\obj\Debug\net6.0\ref\eSya.ConfigPatientType.WebAPI.dll
+D:\Projects\eSyaProjects2022\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.WebAPI\eSya.ConfigPatientType.WebAPI\obj\Debug\net6.0\eSya.ConfigPatientType.WebAPI.MvcApplicationPartsAssemblyInfo.cs
